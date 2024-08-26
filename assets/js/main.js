@@ -55,3 +55,45 @@ sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{});
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+
+
+////
+const carousel = document.querySelector('.carousel');
+        const dots = document.querySelectorAll('.dot');
+        let index = 0;
+        const totalSlides = document.querySelectorAll('.logo-container').length;
+        let slideInterval;
+
+        function showSlide(i) {
+            index = (i + totalSlides) % totalSlides; // Ensure index is within range
+            carousel.style.transform = `translateX(${-index * 100}%)`;
+            updateDots();
+        }
+
+        function nextSlide() {
+            showSlide(index + 1);
+        }
+
+        function prevSlide() {
+            showSlide(index - 1);
+        }
+
+        function updateDots() {
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === index);
+            });
+        }
+
+        function currentSlide(i) {
+            showSlide(i);
+        }
+
+        function startCarousel() {
+            slideInterval = setInterval(nextSlide, 2000); // Slide every 2 seconds
+        }
+
+        function pauseCarousel() {
+            clearInterval(slideInterval);
+        }
+
+        window.onload = startCarousel;

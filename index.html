@@ -173,25 +173,47 @@
         <section class="work section" id="work">
             <h2 class="section-title">Project</h2>
 
-            <div class="work__container bd-grid">
-                <a href="https://www.alishgc.com.np/" class="work__img">
-                    <img src="assets/img/portfolio.png" alt="">
-                </a>
-                <a href="https://alishgc.netlify.app/" class="work__img">
-                    <img src="assets/img/life_computer.png" alt="">
-                </a>
-                <a href="https://node-app-4nm4.onrender.com/" class="work__img">
-                    <img src="assets/img/node_gambling.png" alt="">
-                </a>
-                <a href="https://node-app-4nm4.onrender.com/" class="work__img">
-                    <img src="assets/img/login.png" alt="">
-                </a>
-                <a href="https://node-app-4nm4.onrender.com/" class="work__img">
-                    <img src="assets/img/game_control.png" alt="">
-                </a>
-
+        <div class="carousel-container" onmouseover="pauseCarousel()" onmouseout="startCarousel()">
+            <div class="carousel">
+                <div class="logo-container">
+                    <img src="/assets/img/portfolio.png" alt="Company 1">
+                    <div class="company-name">Personal Website</div>
+                    <a href="https://wwwalishgc.com.np" class="company-button">Visit</a>
+                </div>
+                <div class="logo-container">
+                    <img src="/assets/img/life_computer.png" alt="Company 2">
+                    <div class="company-name">Food Website</div>
+                    <a href="https://alishgc.netlify.app/" class="company-button">Visit</a>
+                </div>
+                <div class="logo-container">
+                    <img src="/assets/img/node_gambling.png" alt="Company 3">
+                    <div class="company-name">Gambling Demo App</div>
+                    <a href="https://node-app-4nm4.onrender.com/" class="company-button">Visit</a>
+                </div>
+                <div class="logo-container">
+                    <img src="/assets/img/game_control.png" alt="Company 3">
+                    <div class="company-name">Admin Pannel</div>
+                    <a href="https://node-app-4nm4.onrender.com/" class="company-button">Visit</a>
+                </div>
+                <!-- Add more logo-container divs as needed -->
             </div>
+    
+            <!-- Navigation Buttons -->
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    
+        <!-- Dots Navigation -->
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <!-- Add more dots as per the number of slides -->
+        </div>
+    
         </section>
+
 
         <!--===== CONTACT =====-->
         <section class="contact section" id="contact">
