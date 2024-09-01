@@ -97,3 +97,59 @@ const carousel = document.querySelector('.carousel');
         }
 
         window.onload = startCarousel;
+
+
+
+// POP UP JS
+// List of image sources and corresponding links
+// List of image sources and corresponding links
+const images = [
+    { src: "assets/img/popup_img/your-image1.png", link: "https://alishgc.com.np/" },
+    { src: "assets/img/popup_img/your-image2.jpg", link: "https://alishgc.com.np/" },
+  ];
+  
+  // Track the current image index
+  let currentImageIndex = 0;
+  
+  // Get elements
+  const popup = document.getElementById('popup');
+  const currentImage = document.getElementById('currentImage');
+  const imageLink = document.getElementById('imageLink');
+  const closeButton = document.querySelector('.close-btn');
+  
+  // Function to show the next image with its link
+  function showNextImage() {
+    if (currentImageIndex < images.length) {
+      currentImage.src = images[currentImageIndex].src;
+      imageLink.href = images[currentImageIndex].link; // Set the link
+      popup.style.display = 'flex'; // Show popup
+    } else {
+      popup.style.display = 'none'; // Hide popup when all images are shown
+    }
+  }
+  
+  // Close button event listener
+  closeButton.addEventListener('click', () => {
+    currentImageIndex++; // Move to the next image
+    if (currentImageIndex < images.length) {
+      showNextImage(); // Show the next image
+    } else {
+      popup.style.display = 'none'; // Hide the popup after the last image
+    }
+  });
+  
+  // Close popup when clicking outside the image, one image at a time
+  popup.addEventListener('click', (event) => {
+    if (event.target === popup) { // Check if the click is outside the image
+      currentImageIndex++; // Increment to the next image
+      if (currentImageIndex < images.length) {
+        showNextImage(); // Show the next image
+      } else {
+        popup.style.display = 'none'; // Hide popup after the last image
+      }
+    }
+  });
+  
+  // Initial call to show the first image
+  showNextImage();
+  
